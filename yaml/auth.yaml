@@ -4,11 +4,6 @@ metadata:
   name: auth
 ---
 apiVersion: v1
-kind: Namespace
-metadata:
-  name: dirigible
----
-apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: service-account
