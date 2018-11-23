@@ -1,3 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: store
+---
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
@@ -54,26 +59,27 @@ spec:
     app: postgres
 ---
 apiVersion: apps/v1beta1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: store
   namespace: store
+  labels:
+    app: store
 spec:
-  serviceName: store
   replicas: 1
+  selector:
+    matchLabels:
+      app: store
   template:
     metadata:
       labels:
         app: store
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
+        - name: store
           image: dirigiblelabs/dirigible-keycloak
           ports:
             - containerPort: 8080
-          volumeMounts:
-            - name: root
-              mountPath: /usr/local/tomcat/target
           env:
             - name: DIRIGIBLE_DATABASE_PROVIDER
               value: "custom"
@@ -85,7 +91,7 @@ spec:
               value: "org.postgresql.Driver"
             # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
             - name: POSTGRES_URL
-              value: "jdbc:postgresql://postgres-jdbc.dirigible:5432/dirigible"
+              value: "jdbc:postgresql://postgres-jdbc:5432/dirigible"
             # The PostgreSQL user
             - name: POSTGRES_USERNAME
               value: "dirigible"
@@ -96,7 +102,7 @@ spec:
               value: "org.postgresql.Driver"
             # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
             - name: DIRIGIBLE_SCHEDULER_DATABASE_URL
-              value: "jdbc:postgresql://postgres-jdbc.dirigible:5432/dirigible"
+              value: "jdbc:postgresql://postgres-jdbc:5432/dirigible"
             # The PostgreSQL user
             - name: DIRIGIBLE_SCHEDULER_DATABASE_USER
               value: "dirigible"
@@ -116,15 +122,6 @@ spec:
             # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
             - name: KEYCLOAK_AUTH_SERVER_URL
               value: "https://auth.<your-domain-name>/auth"
-      serviceAccountName: service-account
-  volumeClaimTemplates:
-    - metadata:
-        name: root
-      spec:
-        accessModes: [ "ReadWriteOnce" ]
-        resources:
-          requests:
-            storage: 1Gi
 ---
 apiVersion: v1
 kind: Service
