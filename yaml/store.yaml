@@ -96,7 +96,7 @@ spec:
     spec:
       containers:
         - name: store
-          image: dirigiblelabs/dirigible-keycloak
+          image: promartio/store
           ports:
             - containerPort: 8080
           env:
