@@ -96,7 +96,7 @@ spec:
     spec:
       containers:
         - name: ecommerceadmin
-          image: dirigiblelabs/dirigible-keycloak
+          image: promartio/store-admin
           ports:
             - containerPort: 8080
           env:
