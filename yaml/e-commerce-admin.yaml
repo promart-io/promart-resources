@@ -96,12 +96,12 @@ spec:
     spec:
       containers:
         - name: ecommerceadmin
-          image: promartio/store-admin
+          image: promartio/e-commerce-admin
           ports:
             - containerPort: 8080
           env:
             - name: DIRIGIBLE_HOME_URL
-              value: "/services/v3/web/store-admin/"
+              value: "/services/v3/web/e-commerce-admin/"
             - name: DIRIGIBLE_DATABASE_PROVIDER
               value: "custom"
             - name: DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES
