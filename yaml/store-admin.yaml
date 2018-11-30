@@ -96,7 +96,7 @@ spec:
     spec:
       containers:
         - name: storeadmin
-          image: dirigiblelabs/dirigible-keycloak
+          image: promartio/store-admin
           ports:
             - containerPort: 8080
           env:
@@ -170,11 +170,11 @@ spec:
   tls:
   # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
   - hosts:
-    - a-store.<your-domain-name>
+    - store-admin.<your-domain-name>
     secretName: store-admin-certificate
   rules:
     # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
-    - host: a-store.<your-domain-name>
+    - host: store-admin.<your-domain-name>
       http:
         paths:
           - path: /
