@@ -21,6 +21,7 @@ subjects:
   - kind: ServiceAccount
     name: service-account
     namespace: landscape-trial
+---
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
