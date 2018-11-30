@@ -103,7 +103,7 @@ spec:
             - name: DIRIGIBLE_DATABASE_PROVIDER
               value: "custom"
             - name: DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES
-              value: "POSTGRES"
+              value: "POSTGRES,ECOMMERCE"
             - name: DIRIGIBLE_DATABASE_DATASOURCE_NAME_DEFAULT
               value: "POSTGRES"
             - name: POSTGRES_DRIVER
@@ -116,6 +116,17 @@ spec:
               value: "dirigible"
             # The PostgreSQL user's password
             - name: POSTGRES_PASSWORD
+              value: "dirigible"
+            - name: ECOMMERCE_DRIVER
+              value: "org.postgresql.Driver"
+            # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
+            - name: ECOMMERCE_URL
+              value: "jdbc:postgresql://postgres-jdbc.e-commerce-admin:5432/dirigible"
+            # The PostgreSQL user
+            - name: ECOMMERCE_USERNAME
+              value: "dirigible"
+            # The PostgreSQL user's password
+            - name: ECOMMERCE_PASSWORD
               value: "dirigible"
             - name: DIRIGIBLE_SCHEDULER_DATABASE_DRIVER
               value: "org.postgresql.Driver"
