@@ -125,7 +125,7 @@ spec:
   # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
   - hosts:
     - auth.<your-domain-name>
-    secretName: keycloak-production-letsencrypt
+    secretName: keycloak-certificate
   rules:
     # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
     - host: auth.<your-domain-name>
