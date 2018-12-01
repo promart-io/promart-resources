@@ -58,17 +58,6 @@ spec:
             # The PostgreSQL user's password
             - name: ECOMMERCE_PASSWORD
               value: "dirigible"
-            - name: KEYCLOAK_CONFIDENTIAL_PORT
-              value: "443"
-            - name: KEYCLOAK_SSL_REQUIRED
-              value: "none"
-            - name: KEYCLOAK_CLIENT_ID
-              value: "dirigible"
-            - name: KEYCLOAK_REALM
-              value: "master"
-            # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
-            - name: KEYCLOAK_AUTH_SERVER_URL
-              value: "https://auth.<your-domain-name>/auth"
 ---
 apiVersion: v1
 kind: Service
