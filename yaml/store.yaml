@@ -47,7 +47,6 @@ spec:
           env:
             - name: DIRIGIBLE_DATABASE_CUSTOM_DATASOURCES
               value: "ECOMMERCE"
-              value: "dirigible"
             - name: ECOMMERCE_DRIVER
               value: "org.postgresql.Driver"
             # The PostgreSQL JDBC URL: jdbc:postgresql://<postgres-service-name>.<namespace>:5432/<database-name>
