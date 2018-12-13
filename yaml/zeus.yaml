@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: zeus
-          image: dirigiblelabs/dirigible-keycloak
+          image: dirigiblelabs/zeus
           ports:
             - containerPort: 8080
           env:
