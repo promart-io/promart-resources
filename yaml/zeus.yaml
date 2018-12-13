@@ -45,6 +45,8 @@ spec:
           ports:
             - containerPort: 8080
           env:
+            - name: "DIRIGIBLE_HOME_URL"
+              value: "/services/v3/web/zeus/"
             - name: "DIRIGIBLE_THEME_DEFAULT"
               value: "simone"
             - name: KEYCLOAK_CONFIDENTIAL_PORT
