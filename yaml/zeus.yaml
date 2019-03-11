@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
         - name: zeus
-          image: dirigiblelabs/zeus
+          image: promartio/zeus
           ports:
             - containerPort: 8080
           env:
