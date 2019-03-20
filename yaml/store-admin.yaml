@@ -100,8 +100,6 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: "DIRIGIBLE_THEME_DEFAULT"
-              value: "simone"
             - name: "DIRIGIBLE_HOME_URL"
               value: "/services/v3/web/store-admin/"
             - name: DIRIGIBLE_DATABASE_PROVIDER
