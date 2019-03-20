@@ -45,6 +45,8 @@ spec:
           ports:
             - containerPort: 8080
           env:
+            - name: DIRIGIBLE_THEME_DEFAULT
+              value: "fiori"
             - name: KEYCLOAK_CONFIDENTIAL_PORT
               value: "443"
             - name: KEYCLOAK_SSL_REQUIRED
