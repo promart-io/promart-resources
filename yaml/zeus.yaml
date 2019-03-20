@@ -59,7 +59,7 @@ spec:
               value: "zeus"
             # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
             - name: KEYCLOAK_AUTH_SERVER_URL
-              value: "https://auth.ingress.pro.promart.shoot.canary.k8s-hana.ondemand.com/auth"
+              value: "https://auth.<your-domain-name>/auth"
 ---
 apiVersion: v1
 kind: Service
@@ -89,11 +89,11 @@ spec:
   tls:
   # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
   - hosts:
-    - zeus.ingress.pro.promart.shoot.canary.k8s-hana.ondemand.com
+    - zeus.<your-domain-name>
     secretName: zeus-certificate
   rules:
     # Replace the placeholder with your domain name (e.g. ingress.dev.blog.shoot.canary.k8s-hana.ondemand.com)
-    - host: zeus.ingress.pro.promart.shoot.canary.k8s-hana.ondemand.com
+    - host: zeus.<your-domain-name>
       http:
         paths:
           - path: /
