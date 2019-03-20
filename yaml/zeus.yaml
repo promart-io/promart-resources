@@ -48,7 +48,7 @@ spec:
             - name: "DIRIGIBLE_HOME_URL"
               value: "/services/v3/web/zeus/"
             - name: "DIRIGIBLE_THEME_DEFAULT"
-              value: "simone"
+              value: "fiori"
             - name: KEYCLOAK_CONFIDENTIAL_PORT
               value: "443"
             - name: KEYCLOAK_SSL_REQUIRED
