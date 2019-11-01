@@ -168,6 +168,8 @@ metadata:
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: letsencrypt-production
     kubernetes.io/ingress.class: "nginx"
+  labels:
+    use-cloudflare-solver: "true"
   name: store-admin
   namespace: store-admin
 spec:
